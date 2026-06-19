@@ -2,29 +2,70 @@
   display: inline-block;
   cursor: pointer;
   border: 0;
-  border-radius: 3em;
+  border-radius: 16px;
   font-weight: 700;
   line-height: 1;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 12px 24px;
+  transition: box-shadow 180ms, transform 120ms;
+  color: #444;
+  background: linear-gradient(to bottom,
+      #ffffff 0%,
+      #f4f4f4 15%,
+      #d9d9d9 50%,
+      #b4b4b4 75%,
+      #7d7d7d 100%);
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, .9), inset 0 -2px 6px rgba(0, 0, 0, .3), 0 3px 8px rgba(0, 0, 0, .15);
+  position: relative;
 }
+
+/* top gloss */
+.storybook-button::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 5px;
+  height: 40%;
+  border-radius: 12px;
+  background: linear-gradient(rgba(255, 255, 255, .95), rgba(255, 255, 255, .1));
+}
+
+.storybook-button:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 1), inset 0 -2px 8px rgba(0, 0, 0, .35), 0 6px 12px rgba(0, 0, 0, .18);
+}
+
+.storybook-button:active {
+  transform: translateY(2px);
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, .25), inset 0 -2px 5px rgba(255, 255, 255, .5);
+}
+
 .storybook-button--primary {
-  background-color: #555ab9;
-  color: white;
+  color: #111;
 }
+
 .storybook-button--secondary {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-  background-color: transparent;
-  color: #333;
+  color: #444;
+  background: linear-gradient(to bottom, #fff, #eee);
+  border: 1px solid var(--border);
 }
+
 .storybook-button--small {
-  padding: 10px 16px;
+  padding: 8px 14px;
   font-size: 12px;
 }
+
 .storybook-button--medium {
-  padding: 11px 20px;
+  padding: 10px 18px;
   font-size: 14px;
 }
+
 .storybook-button--large {
-  padding: 12px 24px;
+  padding: 14px 28px;
   font-size: 16px;
+}
+
+.storybook-button--glow {
+  box-shadow: 0 6px 18px rgba(3, 6, 10, 0.6), 0 0 12px rgba(127, 209, 255, 0.18);
 }
