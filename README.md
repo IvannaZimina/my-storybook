@@ -35,7 +35,55 @@ Each component is developed independently and includes multiple "stories" that r
 ## Getting Started
 
 ### 1. Clone the repository
-
 ```bash
 git clone https://github.com/IvannaZimina/my-storybook.git
 cd my-storybook
+```
+
+### 2. Install dependencies:
+```bash
+npm install
+```
+
+### 3. Run Storybook:
+```bash
+npm run storybook
+```
+Storybook will start on: http://localhost:6006
+
+## Project Structure
+
+    my-storybook/
+    ├── src/
+    │   ├── components/      # UI components
+    │   └── stories/         # Storybook stories
+    ├── .storybook/          # Storybook configuration
+    ├── public/
+    └── package.json
+
+## What is a Story?
+
+In Storybook, a "story" represents a specific state of a component.
+For example, a Button component may have multiple stories:
+- Primary  
+- Secondary  
+- Disabled  
+- Large  
+
+This allows you to visualize and test different cases in isolation.
+
+## Purpose of the Project
+
+This project is intended to:
+- serve as a reusable UI component library  
+- provide a visual documentation system for components  
+- improve consistency across applications  
+- help understand component-driven development  
+
+## Future Improvements
+
+- Add more components to the library  
+- Improve styling and design consistency  
+- Add advanced component patterns  
+- Introduce testing strategies  
+- Integrate AI for component and story generation  
