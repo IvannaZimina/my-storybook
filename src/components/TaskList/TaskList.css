@@ -1,0 +1,76 @@
+/* Minimal TaskList styles matching project aesthetic */
+.task-list {
+    width: 100%;
+}
+
+.list-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.list-item.loading-row,
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: var(--surface, #fff);
+    border: 1px solid var(--border, #eee);
+    border-radius: 8px;
+}
+
+.checkbox-placeholder,
+.pin-placeholder {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: linear-gradient(#f6f6f6, #eaeaea);
+    flex: 0 0 34px;
+}
+
+.title-placeholder {
+    flex: 1 1 auto;
+}
+
+.title-placeholder .line {
+    height: 10px;
+    background: linear-gradient(#f2f2f2, #eaeaea);
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.title-placeholder .line.short {
+    width: 30%;
+}
+
+.title-placeholder .line.long {
+    width: 70%;
+}
+
+.list-items.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text, #333);
+}
+
+.empty-check {
+    font-size: 36px;
+    color: var(--accent, #13c2c2);
+    margin-bottom: 12px;
+}
+
+.empty-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.empty-sub {
+    color: rgba(0, 0, 0, 0.5);
+}
