@@ -1,17 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { MyComponent } from './MyComponent';
-
-const meta: Meta<typeof MyComponent> = {
-  title: 'Components/MyComponent',
-  component: MyComponent,
-};
-
-export default meta;
-
-type Story = StoryObj<typeof MyComponent>;
-
-export const Default: Story = {
-  args: {
-    text: 'Hello',
+// Placeholder story to satisfy Storybook while MyComponent is removed.
+// This file is intentionally minimal and hidden from docs.
+export default {
+  title: 'MyComponent',
+  parameters: {
+    docs: { disable: true },
   },
 };
