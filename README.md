@@ -37,5 +37,5 @@ Each component is developed independently and includes multiple "stories" that r
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/IvannaZimina/my-storybook.git
 cd my-storybook
