@@ -51,15 +51,25 @@ npm run storybook
 ```
 Storybook will start on: http://localhost:6006
 
+
 ## Project Structure
 
-    my-storybook/
-    ├── src/
-    │   ├── components/      # UI components
-    │   └── stories/         # Storybook stories
-    ├── .storybook/          # Storybook configuration
-    ├── public/
-    └── package.json
+    storybook/
+    ├── .storybook/         # Storybook configuration (main.ts, preview.ts)
+    ├── node_modules/       # Installed dependencies (auto-generated)
+    ├── public/             # Static assets (images, fonts, etc.)
+    ├── src/                # Application source code
+    ├── .gitignore          # Git ignore rules
+    ├── eslint.config.js    # ESLint configuration
+    ├── index.html          # HTML entry point
+    ├── package.json        # Project configuration and scripts
+    ├── package-lock.json   # Dependency lock file
+    ├── tsconfig.json       # Base TypeScript config
+    ├── tsconfig.app.json   # TypeScript config for app
+    ├── tsconfig.node.json  # TypeScript config for Node
+    ├── vite.config.ts      # Vite build configuration
+    └── README.md           # Project documentation
+
 
 ## What is a Story?
 
