@@ -82,6 +82,10 @@ For example, a Button component may have multiple stories:
 
 This allows you to visualize and test different cases in isolation.
 
+## Interactive Stories
+
+- **Interactive**: some stories in this project are purely visual demonstrations of a single UI control (for example, the Task story's checkbox). These interactive stories show how the control looks and behaves (hover, active, checked states) but are not full-featured app interactions — they are intended for visual testing, layout verification, and styling iteration.
+
 ## Purpose of the Project
 
 This project is intended to:
