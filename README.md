@@ -4,8 +4,6 @@ This project is a reusable UI component library built with React and documented 
 
 ## [Open StoryBook](https://6a3655623c956705830ae9f2-rovvjvlyhd.chromatic.com/)  
 
----
-
 The goal of this repository is to create a structured and scalable design system that can be reused across different projects. Storybook is used as a visual interface to explore components, their states, and behavior in isolation.
 
 ## Overview
