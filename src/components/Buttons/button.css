@@ -5,7 +5,7 @@
   border-radius: 16px;
   font-weight: 700;
   line-height: 1;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--sans);
   padding: 12px 24px;
   transition: box-shadow 180ms, transform 120ms;
   color: #444;
