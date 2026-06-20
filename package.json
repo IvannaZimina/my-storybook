@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest",
-    "test:storybook": "vitest --project storybook"
+    "test:storybook": "vitest --project storybook",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
