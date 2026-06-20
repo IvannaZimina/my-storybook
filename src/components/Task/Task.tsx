@@ -19,7 +19,6 @@ export default function Task({
     <div className={`list-item ${state}`}>
       <label
         htmlFor={`archiveTask-${id}`}
-        aria-label={`archiveTask-${id}`}
         className="checkbox"
       >
         <input
@@ -28,11 +27,13 @@ export default function Task({
           name="checked"
           id={`archiveTask-${id}`}
           checked={state === "TASK_ARCHIVED"}
+          onClick={() => onArchiveTask(id)}
+          aria-label={`archiveTask-${id}: ${title}`}
         />
-        <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
+        <span className="checkbox-custom"  />
       </label>
 
-      <label htmlFor={`title-${id}`} aria-label={title} className="title">
+      <label htmlFor={`title-${id}`} className="task_title">
         <input
           type="text"
           value={title}
@@ -40,12 +41,13 @@ export default function Task({
           name="title"
           id={`title-${id}`}
           placeholder="Input title"
+          aria-label={`title-${id}`}
         />
       </label>
       <button
         className={`pin-button ${state === 'TASK_PINNED' ? 'is-pinned' : ''} ${state === 'TASK_ARCHIVED' ? 'is-archived' : ''}`}
         onClick={() => onPinTask(id)}
-        id={`pinTask-${id}`}
+        id={`pinTask-${id}: ${title}`}
         aria-label={`pinTask-${id}`}
         aria-pressed={state === 'TASK_PINNED'}
         key={`pinTask-${id}`}

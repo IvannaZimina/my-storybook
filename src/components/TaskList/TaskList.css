@@ -62,11 +62,11 @@
 
 .empty-check {
     font-size: 36px;
-    color: var(--accent, #13c2c2);
+    color: rgb(0, 0, 255);
     margin-bottom: 12px;
 }
 
-.empty-title {
+.empty-block {
     font-weight: 600;
     margin-bottom: 6px;
 }

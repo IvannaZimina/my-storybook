@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import React from 'react';
 import { Provider } from 'react-redux';
 import InboxScreen from './InboxScreen';
 import store, { setError, setTasks } from '../../lib/store';
+import { expect } from 'storybook/test';
 
 const meta = {
   component: InboxScreen,
@@ -36,5 +36,10 @@ export const Error: Story = {
         </Provider>
       </div>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement;
+
+    expect(canvas.textContent).toBeTruthy();
   },
 };

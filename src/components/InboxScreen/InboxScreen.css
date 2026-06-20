@@ -1,12 +1,16 @@
 .inbox-screen .container {
-    padding: 20px;
+    padding: 0;
 }
 
 .screen-title {
-    background: linear-gradient(#e6fbfb, #dff6f6);
+    background-image:
+            linear-gradient(135deg, rgba(19, 194, 194, 0.18), rgba(100, 150, 255, 0.12)),
+            radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.24) 0 10%, transparent 11%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(0, 0, 0, 0.08));
+    opacity: 0.95;
     border-left: 8px solid var(--accent, #13c2c2);
-    padding: 12px 16px;
-    margin-bottom: 16px;
+    padding: 8px;
+    margin-bottom: 10px;
     font-size: 20px;
 }
 
@@ -41,5 +45,4 @@
 
 .error-sub {
     color: rgba(0, 0, 0, 0.6);
-}
 }

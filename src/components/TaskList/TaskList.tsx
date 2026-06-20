@@ -1,5 +1,4 @@
 import type { TaskData } from '../../types';
-import React from 'react';
 import Task from '../Task/Task';
 import './TaskList.css';
 
@@ -53,7 +52,7 @@ export default function TaskList({
         <div className="list-items empty">
           <div className="empty-state">
             <div className="empty-check">✓</div>
-            <div className="empty-title">You have no tasks</div>
+            <div className="empty-block">You have no tasks</div>
             <div className="empty-sub">Sit back and relax</div>
           </div>
         </div>

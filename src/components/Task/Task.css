@@ -9,7 +9,7 @@
     align-items: center;
     /* vertical center alignment */
     gap: 12px;
-    padding: 10px 12px;
+    padding: 8px;
     background: var(--surface);
     /* white card */
     border: 1px solid rgb(15 20 26 / 10%);
@@ -35,9 +35,9 @@
 
 /* Glass checkbox (fixed size) */
 .checkbox-custom {
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
     box-sizing: border-box;
     background: linear-gradient(to bottom, #ffffff, #e9e9e9, #bfbfbf);
     box-shadow: inset 0 2px 5px rgba(255, 255, 255, .9), inset 0 -2px 5px rgba(0, 0, 0, .12);
@@ -74,37 +74,38 @@
     color: #222;
 }
 
-.list-item.TASK_ARCHIVED .title input {
-    color: rgba(120, 120, 120, 0.8);
+.list-item.TASK_ARCHIVED .task_title input {
+    color: rgb(51 51 51 / 80%);
     text-decoration: line-through;
 }
 
 /* Title should take remaining space and vertically center */
-.title {
+.task_title {
     flex: 1 1 auto;
     display: flex;
     align-items: center;
 }
 
-.title input {
+.task_title input {
     border: none;
     outline: none;
     font-size: 15px;
     color: var(--text);
-    background: transparent;
+    background: #ffffff;
     width: 100%;
     font-weight: 500;
+    font-family: var(--sans);
     padding: 8px 0;
-    line-height: 18px;
+    line-height: 1.5;
 }
 
 /* Pin button - fixed size to match checkbox height */
 .pin-button {
-    flex: 0 0 34px;
-    height: 34px;
+    flex: 0 0 25px;
+    height: 25px;
     background: #fff;
     border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -130,8 +131,8 @@
 
 /* Keep consistent row height so checked state doesn't shrink card */
 .list-item {
-    min-height: 54px;
-    /* checkbox (34) + vertical padding (10+10) */
+    min-height: 30px;
+    /* compact row height */
 }
 
 /* Slightly muted appearance when archived but keep pin visible */

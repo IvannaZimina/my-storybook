@@ -8,7 +8,7 @@
   /* page background */
   --surface: #ffffff;
   /* cards and surfaces */
-  --border: rgba(15, 20, 26, 0.06);
+  --border: rgba(65, 67, 70, 0.06);
   /* thin subtle border */
   --code-bg: #f2f4f6;
   --accent: #1ea7fd;
@@ -18,12 +18,11 @@
   --social-bg: rgba(244, 246, 249, 0.7);
   --shadow: 0 8px 20px rgba(15, 20, 26, 0.08);
 
-  --sans: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --sans: 'Calibri Light', Calibri, Arial, sans-serif;
+  --heading: Georgia, 'Times New Roman', Times, serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;
 
   font: 18px/145% var(--sans);
-  letter-spacing: 0.2px;
   color-scheme: light;
   color: var(--text);
   background: var(--bg);
@@ -70,13 +69,13 @@ body {
 h1,
 h2 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-h);
 }
 
 h1 {
   font-size: 56px;
-  letter-spacing: -1.68px;
+  letter-spacing: -1.68;
   margin: 32px 0;
 
   @media (max-width: 1024px) {
@@ -88,7 +87,7 @@ h1 {
 h2 {
   font-size: 24px;
   line-height: 118%;
-  letter-spacing: -0.24px;
+  letter-spacing: -0.24;
   margin: 0 0 8px;
 
   @media (max-width: 1024px) {
@@ -98,6 +97,15 @@ h2 {
 
 p {
   margin: 0;
+}
+
+/* Override for Storybook generated wrapper classes - set small inner padding */
+.css-1cvjpgl {
+  display: block !important;
+  position: relative !important;
+  flex-flow: column wrap !important;
+  overflow: auto !important;
+  padding: 10px !important;
 }
 
 code,

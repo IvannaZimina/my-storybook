@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import type { RootState, AppDispatch } from '../../lib/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTasks, updateTaskState } from '../../lib/store';
@@ -20,9 +20,9 @@ export default function InboxScreen({ skipFetch = false }: InboxProps) {
   if (error) {
     return (
       <div className="inbox-screen">
-        <div className="container error">
-          <div className="error-illustration" aria-hidden>
-            <span className="sad">☹</span>
+        <div className="container error" role="alert">
+          <div className="error-illustration">
+            <span className="sad" role="img" aria-label="Sad face">☹</span>
           </div>
           <h2 className="error-title">Oh no!</h2>
           <div className="error-sub">Something went wrong</div>
@@ -32,9 +32,9 @@ export default function InboxScreen({ skipFetch = false }: InboxProps) {
   }
 
   return (
-    <div className="inbox-screen">
+    <div className="inbox-screen" role="main">
       <div className="container">
-        <h2 className="screen-title">Taskbox</h2>
+        <h1 className="screen-title">Taskbox</h1>
         <TaskList
           loading={status === 'loading'}
           tasks={tasks}

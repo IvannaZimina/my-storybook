@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { TaskData } from '../../types';
+import { useState } from 'react';
 import { fn } from 'storybook/test';
-import React from 'react';
 import Task from './Task';
+
 
 export const ActionsData = {
   onArchiveTask: fn(),
@@ -31,6 +32,7 @@ export const Default: Story = {
       state: 'TASK_INBOX',
     },
   },
+  
 };
 
 export const Pinned: Story = {
@@ -61,8 +63,9 @@ export const Interactive: Story = {
       state: 'TASK_INBOX',
     },
   },
+
   render: () => {
-    const [task, setTask] = React.useState<TaskData>({
+    const [task, setTask] = useState<TaskData>({
       id: '1',
       title: 'Test Task',
       state: 'TASK_INBOX',

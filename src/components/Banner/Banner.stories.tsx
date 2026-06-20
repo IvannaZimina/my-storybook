@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import React from 'react';
 import Banner from './Banner';
+import { expect } from 'storybook/test';
 
 const items = [
-  { id: 'a', title: 'Lorem ipsum', subtitle: 'dolor sit amet', accent: '#13c2c2' },
-  { id: 'b', title: 'Lorem ipsum', subtitle: 'dolor sit amet', accent: '#6f9eff' },
-  { id: 'c', title: 'Lorem ipsum', subtitle: 'dolor sit amet', accent: '#9b8cff' },
+  { id: 'a', title: 'Lorem ipsum', subtitle: 'dolor sit amet', text: 'Lorem ipsum dolor', accent: '#13c2c2' },
+  { id: 'b', title: 'Lorem ipsum', subtitle: 'dolor sit amet', text: 'Lorem ipsum dolor', accent: '#6f9eff' },
+  { id: 'c', title: 'Lorem ipsum', subtitle: 'dolor sit amet', text: 'Lorem ipsum dolor', accent: '#9b8cff' },
 ];
 
 const meta = {
@@ -22,11 +22,23 @@ export const Horizontal: Story = {
     items,
     orientation: 'horizontal',
   },
+  
+  play: async ({ canvasElement }) => {
+      const canvas = canvasElement;
+
+      expect(canvas.textContent).toBeTruthy();
+  },
+
 };
 
 export const Vertical: Story = {
   args: {
     items,
     orientation: 'vertical',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = canvasElement;
+
+    expect(canvas.textContent).toBeTruthy();
   },
 };
