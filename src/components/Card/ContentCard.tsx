@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Card.css';
+import sky from "../../images/sky.png";
 
 type Props = {
   image?: string;
@@ -12,7 +13,7 @@ export default function ContentCard({ image, title, excerpt }: Props) {
     <div className="card card--content">
       <div className="card__media card__media--square">
         {image ? (
-          <ContentImage src={image} alt={title} />
+          <ContentImage src={sky} alt={title} />
         ) : (
           <div className="card__image-fallback" aria-hidden>
             <svg width="100%" height="100%" viewBox="0 0 400 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
