@@ -7,6 +7,7 @@ The goal of this repository is to create a structured and scalable design system
 ## Open Storybook
 
 ### **[View Live Demo](https://main--6a3655623c956705830ae9f2.chromatic.com/)**
+[![Storybook](https://img.shields.io/badge/Storybook-Published-FF4785?style=flat-square&logo=storybook)](https://main--6a3655623c956705830ae9f2.chromatic.com)
 
 ## Overview
 
