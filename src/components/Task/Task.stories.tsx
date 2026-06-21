@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { TaskData } from '../../types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { fn } from 'storybook/test';
 import Task from './Task';
-
 
 export const ActionsData = {
   onArchiveTask: fn(),
@@ -21,70 +20,84 @@ const meta = {
 } satisfies Meta<typeof Task>;
 
 export default meta;
-
 type Story = StoryObj<typeof meta>;
 
+// ✅ Default (обычная таска)
 export const Default: Story = {
   args: {
     task: {
       id: '1',
       title: 'Test Task',
-      state: 'TASK_INBOX',
+      isArchived: false,
+      isPinned: false,
     },
   },
-  
 };
 
+// ✅ Pinned (только звездочка)
 export const Pinned: Story = {
   args: {
     task: {
-      ...Default.args.task!,
-      state: 'TASK_PINNED',
+      id: '1',
+      title: 'Test Task',
+      isArchived: false,
+      isPinned: true,
     },
   },
 };
 
+// ✅ Archived (только выполнена)
 export const Archived: Story = {
   args: {
     task: {
-      ...Default.args.task!,
-      state: 'TASK_ARCHIVED',
+      id: '1',
+      title: 'Test Task',
+      isArchived: true,
+      isPinned: false,
     },
   },
 };
 
-
-export const Interactive: Story = {
+// ✅ Раньше этого не могло быть: И архивная, И пиннутая одновременно!
+export const PinnedAndArchived: Story = {
   args: {
-    ...ActionsData,
     task: {
       id: '1',
       title: 'Test Task',
-      state: 'TASK_INBOX',
+      isArchived: true,
+      isPinned: true,
     },
   },
+};
 
-  render: () => {
-    const [task, setTask] = useState<TaskData>({
+// ✅ Interactive (теперь полностью раздельная логика)
+export const Interactive: Story = {
+  args: {
+    task: {
       id: '1',
       title: 'Test Task',
-      state: 'TASK_INBOX',
-    });
+      isArchived: false,
+      isPinned: false,
+    },
+  },
+  render: (args) => {
+    const [task, setTask] = useState<TaskData>(args.task);
+
+    useEffect(() => {
+      setTask(args.task);
+    }, [args.task]);
 
     return (
       <Task
+        {...args}
         task={task}
+        // Инвертируем только флаг архива
         onArchiveTask={() =>
-          setTask({
-            ...task,
-            state:
-              task.state === 'TASK_ARCHIVED'
-                ? 'TASK_INBOX'
-                : 'TASK_ARCHIVED',
-          })
+          setTask((prev) => ({ ...prev, isArchived: !prev.isArchived }))
         }
+        // Инвертируем только флаг пина
         onPinTask={() =>
-          setTask({ ...task, state: 'TASK_PINNED' })
+          setTask((prev) => ({ ...prev, isPinned: !prev.isPinned }))
         }
       />
     );
@@ -92,7 +105,7 @@ export const Interactive: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Interactive: visualization of the task checkbox — demonstrates appearance and states (hover, checked, pinned). Intended for visual testing and layout verification, not for full business logic.',
+        story: 'Interactive: independent clickable checkbox and pin state.',
       },
     },
   },

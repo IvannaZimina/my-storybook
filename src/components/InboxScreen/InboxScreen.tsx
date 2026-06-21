@@ -38,11 +38,11 @@ export default function InboxScreen({ skipFetch = false }: InboxProps) {
         <TaskList
           loading={status === 'loading'}
           tasks={tasks}
-          onPinTask={(id: string) => dispatch(updateTaskState({ id, newTaskState: 'TASK_PINNED' }))}
+          onPinTask={(id: string) =>
+            dispatch(updateTaskState({ id, newTaskState: 'TASK_PINNED' }))
+          }
           onArchiveTask={(id: string) =>
-            dispatch(
-              updateTaskState({ id, newTaskState: 'TASK_ARCHIVED' })
-            )
+            dispatch(updateTaskState({ id, newTaskState: 'TASK_ARCHIVED' }))
           }
         />
       </div>

@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+
 import InboxScreen from './InboxScreen';
-import store, { setError, setTasks } from '../../lib/store';
-import { expect } from 'storybook/test';
+import { rootReducer, setError, setTasks } from '../../lib/store';
 
 const meta = {
   component: InboxScreen,
@@ -10,9 +11,7 @@ const meta = {
   decorators: [
     (Story) => (
       <div style={{ margin: '2rem' }}>
-        <Provider store={store}>
-          <Story />
-        </Provider>
+        <Story />
       </div>
     ),
   ],
@@ -22,24 +21,37 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
 
-export const Error: Story = {
+// ✅ Default
+export const Default: Story = {
   render: () => {
-    // set error state in store before rendering and ensure no tasks
-    store.dispatch(setTasks([]));
-    store.dispatch(setError('Something went wrong'));
+    const store = configureStore({
+      reducer: rootReducer,
+    });
+
     return (
-      <div style={{ margin: '2rem' }}>
-        <Provider store={store}>
-          <InboxScreen skipFetch />
-        </Provider>
-      </div>
+      <Provider store={store}>
+        <InboxScreen />
+      </Provider>
     );
   },
-  play: async ({ canvasElement }) => {
-    const canvas = canvasElement;
+};
 
-    expect(canvas.textContent).toBeTruthy();
+
+// ✅ Error (ТО, ЧТО ТЕБЕ НУЖНО)
+export const Error: Story = {
+  render: () => {
+    const store = configureStore({
+      reducer: rootReducer,
+    });
+
+    store.dispatch(setTasks([]));
+    store.dispatch(setError('Something went wrong'));
+
+    return (
+      <Provider store={store}>
+        <InboxScreen skipFetch />
+      </Provider>
+    );
   },
 };

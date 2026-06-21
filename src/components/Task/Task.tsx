@@ -2,57 +2,50 @@ import type { TaskData } from '../../types';
 import './Task.css';
 
 type TaskProps = {
-  /** Composition of the task */
   task: TaskData;
-  /** Event to change the task to archived */
   onArchiveTask: (id: string) => void;
-  /** Event to change the task to pinned */
   onPinTask: (id: string) => void;
 };
 
 export default function Task({
-  task: { id, title, state },
+  task: { id, title, isArchived, isPinned },
   onArchiveTask,
   onPinTask,
 }: TaskProps) {
   return (
-    <div className={`list-item ${state}`}>
-      <label
-        htmlFor={`archiveTask-${id}`}
-        className="checkbox"
-      >
+    <div className={`list-item ${isArchived ? 'TASK_ARCHIVED' : ''} ${isPinned ? 'TASK_PINNED' : ''}`}>
+      
+      {/* ✅ КАСТОМНЫЙ ЧЕКБОКС */}
+      <label className="checkbox" htmlFor={`archiveTask-${id}`}>
         <input
           type="checkbox"
-          disabled={true}
-          name="checked"
           id={`archiveTask-${id}`}
-          checked={state === "TASK_ARCHIVED"}
-          onClick={() => onArchiveTask(id)}
+          checked={isArchived}
+          onChange={() => onArchiveTask(id)}
           aria-label={`archiveTask-${id}: ${title}`}
         />
-        <span className="checkbox-custom"  />
+        <span className="checkbox-custom" />
       </label>
 
+      {/* ✅ ТЕКСТ */}
       <label htmlFor={`title-${id}`} className="task_title">
         <input
           type="text"
           value={title}
-          readOnly={true}
-          name="title"
+          readOnly
           id={`title-${id}`}
-          placeholder="Input title"
           aria-label={`title-${id}`}
         />
       </label>
+
+      {/* ✅ PIN */}
       <button
-        className={`pin-button ${state === 'TASK_PINNED' ? 'is-pinned' : ''} ${state === 'TASK_ARCHIVED' ? 'is-archived' : ''}`}
+        className={`pin-button ${isPinned ? 'is-pinned' : ''} ${isArchived ? 'is-archived' : ''}`}
         onClick={() => onPinTask(id)}
-        id={`pinTask-${id}: ${title}`}
         aria-label={`pinTask-${id}`}
-        aria-pressed={state === 'TASK_PINNED'}
-        key={`pinTask-${id}`}
+        aria-pressed={isPinned}
       >
-        <span className={`icon-star`} />
+        <span className="icon-star" />
       </button>
     </div>
   );

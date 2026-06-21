@@ -62,6 +62,12 @@ const TasksSlice = createSlice({
 
 export const { updateTaskState, setError, setTasks } = TasksSlice.actions;
 
+
+export const rootReducer = {
+  taskbox: TasksSlice.reducer,
+};
+
+
 const store = configureStore({
   reducer: {
     taskbox: TasksSlice.reducer,
