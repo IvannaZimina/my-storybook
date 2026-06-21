@@ -6,7 +6,7 @@ The goal of this repository is to create a structured and scalable design system
 
 ## Open Storybook
 
-### **[View Live Demo](https://6a3655623c956705830ae9f2-rovvjvlyhd.chromatic.com/)**
+### **[View Live Demo](https://6a3655623c956705830ae9f2-rbebmwhrpv.chromatic.com/)**
 
 ## Overview
 
